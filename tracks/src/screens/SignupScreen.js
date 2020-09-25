@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { Button, Text, Input } from 'react-native-elements'
+import AuthForm from '../components/AuthForm'
 import Spacer from '../components/Spacer'
 import { Context as AuthContext } from '../context/AuthContext'
 
@@ -11,31 +12,12 @@ const SignupScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Spacer>
-        <Text h3>Sign up for Tracker</Text>
-      </Spacer>
-      <Input
-        autoCapitalize="none"
-        autoCorrect={false}
-        label="Email"
-        value={email}
-        onChangeText={setEmail}
+      <AuthForm
+        headerText="Sign Up for Tracker"
+        errorMessage={state.errorMessage}
+        submitButtonText="Sign Up"
+        onSubmit={signup}
       />
-      <Spacer />
-      <Input
-        autoCapitalize="none"
-        autoCorrect={false}
-        secureTextEntry
-        label="Password"
-        value={password}
-        onChangeText={setPassword}
-      />
-      {state.errorMessage ? (
-        <Text style={styles.errorMessage}>{state.errorMessage}</Text>
-      ) : null}
-      <Spacer>
-        <Button title="Sign Up" onPress={() => signup({ email, password })} />
-      </Spacer>
       <TouchableOpacity onPress={() => navigation.navigate('Signin')}>
         <Spacer>
           <Text style={styles.link}>
