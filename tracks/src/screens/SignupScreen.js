@@ -1,14 +1,12 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
-import { Button, Text, Input } from 'react-native-elements'
+import { Text } from 'react-native-elements'
 import AuthForm from '../components/AuthForm'
 import Spacer from '../components/Spacer'
 import { Context as AuthContext } from '../context/AuthContext'
 
 const SignupScreen = ({ navigation }) => {
   const { state, signup } = useContext(AuthContext)
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
 
   return (
     <View style={styles.container}>
@@ -42,12 +40,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     marginBottom: 250,
-  },
-  errorMessage: {
-    fontSize: 16,
-    color: 'red',
-    marginLeft: 15,
-    marginTop: 15,
   },
   link: {
     color: 'blue',
