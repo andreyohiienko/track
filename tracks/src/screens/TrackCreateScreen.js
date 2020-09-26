@@ -13,8 +13,10 @@ import useLocation from '../hooks/useLocation'
 import '../_mockLocation'
 
 const TrackCreateScreen = ({ isFocused }) => {
-  const { addLocation } = useContext(LocationContext)
-  const [err] = useLocation(isFocused, addLocation)
+  const { state, addLocation } = useContext(LocationContext)
+  const [err] = useLocation(isFocused, (location) => {
+    addLocation(location, state.recording)
+  })
 
   return (
     <SafeAreaView>
