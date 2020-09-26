@@ -22,10 +22,10 @@ const changeName = (dispatch) => (name) => {
 }
 
 const startRecording = (dispatch) => () => {
-  disptch({ type: 'start_recording' })
+  dispatch({ type: 'start_recording' })
 }
 const stopRecording = (dispatch) => () => {
-  disptch({ type: 'stop_recording' })
+  dispatch({ type: 'stop_recording' })
 }
 const addLocation = (dispatch) => (location, recording) => {
   dispatch({ type: 'add_current_location', payload: location })
