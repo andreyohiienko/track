@@ -14,7 +14,9 @@ import '../_mockLocation'
 
 const TrackCreateScreen = ({ isFocused }) => {
   const { state, addLocation } = useContext(LocationContext)
+  console.log('outside', state.recording)
   const [err] = useLocation(isFocused, (location) => {
+    console.log('inside', state.recording)
     addLocation(location, state.recording)
   })
 
