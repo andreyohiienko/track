@@ -1,3 +1,4 @@
+import '../_mockLocation'
 import { requestPermissionsAsync } from 'expo-location'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet } from 'react-native'
