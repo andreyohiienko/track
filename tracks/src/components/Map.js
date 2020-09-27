@@ -5,7 +5,7 @@ import { Context as LocationContext } from '../context/LocationContext'
 
 const Map = () => {
   const {
-    state: { currentLocation },
+    state: { currentLocation, locations },
   } = useContext(LocationContext)
 
   if (!currentLocation) {
@@ -21,6 +21,7 @@ const Map = () => {
       }}
       style={styles.map}
     >
+      <Polyline coordinates={locations.map((loc) => loc.coords)} />
       <Circle
         center={currentLocation.coords}
         radius={30}
