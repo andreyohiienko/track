@@ -1,3 +1,4 @@
+import { FontAwesome } from '@expo/vector-icons'
 import React, { useCallback, useContext } from 'react'
 import { StyleSheet } from 'react-native'
 import { Text } from 'react-native-elements'
@@ -21,7 +22,7 @@ const TrackCreateScreen = ({ isFocused }) => {
   const [err] = useLocation(isFocused || recording, callback)
 
   return (
-    <SafeAreaView>
+    <SafeAreaView forceInset={{ top: 'always' }}>
       <Text h3 style={styles.title}>
         Create a Track
       </Text>
@@ -30,6 +31,11 @@ const TrackCreateScreen = ({ isFocused }) => {
       <TrackForm />
     </SafeAreaView>
   )
+}
+
+TrackCreateScreen.navigationOptions = {
+  title: 'Add Track',
+  tabBarIcon: <FontAwesome name="plus" size={20} />,
 }
 
 export default withNavigationFocus(TrackCreateScreen)
